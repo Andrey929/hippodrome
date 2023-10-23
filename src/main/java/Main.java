@@ -1,7 +1,11 @@
+
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Logger;
 
 public class Main {
+    private static final Logger logger =  Logger.getLogger("Main_Log");
 
     public static void main(String[] args) throws Exception {
         List<Horse> horses = List.of(
@@ -14,6 +18,7 @@ public class Main {
                 new Horse("Cherry", 3)
         );
         Hippodrome hippodrome = new Hippodrome(horses);
+        logger.info(LocalDateTime.now() + " "+logger.getLevel() + logger.getName() +": Начало скачек. Количество участников: "+horses.size());
 
         for (int i = 0; i < 100; i++) {
             hippodrome.move();
